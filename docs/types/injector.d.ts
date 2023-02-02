@@ -7,17 +7,17 @@
  * @see https://github.com/young-steveo/bottlejs
  */
 import "reflect-metadata";
-import * as Bottle from 'bottlejs';
-declare type InjectableClass<T> = {
+import Bottle from 'bottlejs';
+type InjectableClass<T> = {
     new (...args: any[]): T;
     $inject?: DependencyList;
     name: string;
 };
-declare type GettableClass<T> = Function & {
+type GettableClass<T> = Function & {
     prototype: T;
     name: string;
 };
-declare type DependencyList = (InjectableClass<unknown> | string)[];
+type DependencyList = (InjectableClass<unknown> | string)[];
 /**
  * Wraps up type-safe version of BottleJs for common uses.
  *

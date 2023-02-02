@@ -7,7 +7,7 @@
  * @see https://github.com/young-steveo/bottlejs
  */
 import "reflect-metadata";
-import * as Bottle from 'bottlejs';
+import Bottle from 'bottlejs';
 import {Logger} from "@sailplane/logger";
 
 const logger = new Logger('injector');

@@ -41,7 +41,7 @@ if [[ $COMMAND == build || $COMMAND == all ]]; then
         make html || exit $?
         popd
     else
-        echo "(skiping documentation build in ReadTheDocs)"
+        echo "(skipping documentation build in ReadTheDocs)"
     fi
 fi
 

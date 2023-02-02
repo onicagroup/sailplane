@@ -1,6 +1,6 @@
 {
   "name": "@sailplane/injector",
-  "version": "3.0.0",
+  "version": "4.0.0-alpha.2",
   "description": "Simple, light-weight, lazy-instantiating, and type-safe dependency injection in Typescript.",
   "keywords": [
     "di",
@@ -8,7 +8,7 @@
     "typescript"
   ],
   "scripts": {
-    "build": "tsc && npm link && cp dist/injector.d.ts ../docs/types/",
+    "build": "tsc && tsc -p tsconfig-cjs.json && ../publish-modules.sh dist && npm link && cp dist/esm/injector.d.ts ../docs/types/",
     "test": "LOG_LEVEL=NONE jest --no-cache",
     "test:watch": "jest --watch",
     "clean:publish": "rm -r dist; npm run build && npm publish --access public"
@@ -28,21 +28,35 @@
   },
   "devDependencies": {
     "@sailplane/logger": "file:../logger",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^12.20.16",
-    "bottlejs": "^1.7.2",
-    "jest": "^26.6.3",
-    "ts-jest": "^26.5.6",
-    "ts-loader": "^9.2.3",
-    "ts-node": "^10.0.0",
-    "typescript": "^3.8.3"
+    "@types/jest": "^29.2.3",
+    "@types/node": "^14.18.33",
+    "bottlejs": "^2.0.1",
+    "jest": "^29.3.1",
+    "ts-jest": "^29.0.3",
+    "ts-loader": "^9.4.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.7.4"
   },
   "peerDependencies": {
     "@sailplane/logger": ">=2.0.0",
-    "bottlejs": "1.7.x"
+    "bottlejs": "2.x.x"
   },
-  "main": "dist/injector.js",
+  "main": "dist/cjs/injector.js",
+  "module": "dist/esm/injector.js",
+  "exports": {
+    ".": {
+      "import": "./dist/esm/injector.js",
+      "require": "./dist/cjs/injector.js"
+    }
+  },
   "files": [
-    "dist/injector.d.ts"
+    "dist/cjs/injector.js",
+    "dist/cjs/injector.js.map",
+    "dist/cjs/injector.d.ts",
+    "dist/cjs/package.json",
+    "dist/esm/injector.js",
+    "dist/esm/injector.js.map",
+    "dist/esm/injector.d.ts",
+    "dist/esm/package.json"
   ]
 }

@@ -4,7 +4,7 @@
     "allowSyntheticDefaultImports": true,
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
-    "module": "commonjs",
+    "module": "es2020",
     "moduleResolution": "node",
     "baseUrl": "lib",
     "rootDirs": [
@@ -12,16 +12,15 @@
     ],
     "sourceMap": true,
     "declaration": true,
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "removeComments": false,
     "strictNullChecks": true,
-    "target": "es6",
+    "target": "es2020",
     "typeRoots": [
       "node_modules/@types"
-    ],
-    "lib": [
-      "es2016"
     ]
   },
-  "include": [ "lib/*" ]
+  "include": [
+    "lib/*"
+  ]
 }
